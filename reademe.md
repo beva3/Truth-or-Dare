@@ -13,7 +13,7 @@
             nb : there is a scroll for this box
         
         ii. right : generate user
-            heder : text generat user
+            heder : text generate user
             body :
                 there is a larg icone of unknown user,
                 and in the barycenter of this icon there is an dice to show a process,
@@ -21,7 +21,11 @@
 
 # section 2 : user U generate challenge type CH
 1. container
-    box : 
+    card :
+        header : generate challenge type
+        body : object 3D like a dice 6 face
+            in the last row there is a text
+         in a footer there is a button
 
 # section 3 : generate one action in the table CH
 

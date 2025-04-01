@@ -1,0 +1,270 @@
+:root {
+    --primary-color: #15b8ea;
+    --secondary-color: #2aa80d;
+    --dark-color: #292f36;
+    --light-color: #f7fff7;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.user-list-container {
+    border-right: 2px dashed #eee;
+    height: 100%;
+}
+
+.user-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.user-list-body {
+    height: 500px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.user-row:hover {
+    background-color: #f0f0f0;
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-right: 15px;
+    font-size: 18px;
+}
+
+.generate-user-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.generate-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--dark-color);
+    margin-bottom: 30px;
+}
+
+.user-avatar-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.user-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    background-color: #e9ecef;
+    color: #adb5bd;
+    transition: all 0.5s ease;
+}
+
+.dice-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.generate-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.spinning {
+    animation: spin 0.5s linear infinite;
+}
+
+/* 3D dice effect */
+.dice-icon {
+    transform-style: preserve-3d;
+    transform: translate(-50%, -50%) rotateX(20deg) rotateY(20deg);
+    transition: transform 0.5s;
+}
+
+.dice-icon:hover {
+    transform: translate(-50%, -50%) rotateX(30deg) rotateY(30deg);
+}
+
+/* Scrollbar styling */
+.user-list-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.user-list-body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.user-list-body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* generate type of challenge */
+
+.challenge-card {
+    max-width: 500px;
+    margin: 2rem auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+
+.card-header {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 15px;
+    text-align: center;
+}
+
+.card-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.dice-container {
+    perspective: 1000px;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+}
+
+.dice {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.dice-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border: 2px solid var(--dark-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.1);
+}
+
+.dice-face i {
+    color: var(--primary-color);
+}
+
+/* Dice face positions */
+.dice-face:nth-child(1) { transform: rotateY(0deg) translateZ(75px); }
+.dice-face:nth-child(2) { transform: rotateY(90deg) translateZ(75px); }
+.dice-face:nth-child(3) { transform: rotateX(90deg) translateZ(75px); }
+.dice-face:nth-child(4) { transform: rotateX(-90deg) translateZ(75px); }
+.dice-face:nth-child(5) { transform: rotateY(-90deg) translateZ(75px); }
+.dice-face:nth-child(6) { transform: rotateY(180deg) translateZ(75px); }
+
+.challenge-text {
+    font-size: 1.2rem;
+    margin-top: 20px;
+    min-height: 30px;
+}
+
+.generate-btn {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    width: 100%;
+}
+
+.generate-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes spin {
+    0% { transform: rotateX(0) rotateY(0); }
+    100% { transform: rotateX(720deg) rotateY(360deg); }
+}
+
+.spinning {
+    animation: spin 1s ease-out;
+}
