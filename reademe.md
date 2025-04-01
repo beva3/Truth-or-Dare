@@ -30,3 +30,25 @@
 # section 3 : generate one action in the table CH
 
 # section 4 : user U pass the game
+
+# back end
+GAME :
+    users
+    challenge = {truths, dares}
+    curent_user
+    curent_challenge
+
+    # methods
+        init() : loading data : users, challenges
+        generate_users() : give the randome user who will play the challenge
+        get_challenge_type() : from random of touth or dare
+        generate_challenge()    : generate random challenge from the get_challenge_type()
+
+
+MAIN :
+G = GAME()
+G.INIT()
+USER = generate_users()
+CHALLENGE_TYPE = get_challenge_type () // truths or dare
+CURENT_CHALLENGE = generate_challenge()
+USER_ACTION() // USER DO THE CHALLENGE RANDOM
